@@ -5,8 +5,8 @@
 // @description  Collect input and fill the HW installation MCM template
 // @author       chengng@
 // @match       https://mcm.amazon.com/cms/new?from_template=0d640ded-d096-48a6-b3f5-c7c2d5fa76a7
-// @updateURL   https://raw.githubusercontent.com/joshm3u/cable-patch-helper/main/HW%20install%20helper.js
-// @downloadURL https://raw.githubusercontent.com/joshm3u/cable-patch-helper/main/HW%20install%20helper.js
+// @updateURL   https://raw.githubusercontent.com/joshm3u/HW-install-helper/main/HW%20install%20helper.js
+// @downloadURL https://raw.githubusercontent.com/joshm3u/HW-install-helper/main/HW%20install%20helper.js
 // @grant        none
 // ==/UserScript==
 
