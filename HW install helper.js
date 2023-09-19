@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         HW Installation MCM helper
 // @namespace    https://mcm.amazon.com
-// @version      0.1
-// @description  HW Installation MCM helper
+// @version      0.2
+// @description  HW Installation helper
 // @author       chengng@
 // @match        https://mcm.amazon.com/cms/new?from_template=0d640ded-d096-48a6-b3f5-c7c2d5fa76a7
 // @updateURL    https://raw.githubusercontent.com/joshm3u/HW-install-helper/main/HW%20install%20helper.js
@@ -13,6 +13,7 @@
 /*
 REVISION HISTORY:
 0.1 - 2023-09-13 - chengng@ - Initial setup for the HW installation helper
+0.2 - 2023-09-19 - chengng@ - Remove approvers and Add Tier selection based on the MCM type
 */
 
 (function() {
@@ -53,6 +54,19 @@ REVISION HISTORY:
         if (inputField) {
             inputField.value = inputField.value.replace(placeholder, replacement);
         }
+    }
+
+            // Function to click the "Delete" buttons
+    function clickDeleteButtons() {
+        var deleteButtons = document.querySelectorAll('a.delete-approver'); // Select all elements with class 'delete-approver'
+
+        // Loop through the delete buttons and click them
+        deleteButtons.forEach(function(button) {
+            var dataApprover = button.getAttribute('data-approver');
+            if (dataApprover === 'l2-id-mcmbr' || dataApprover === 'l3-id-approval') {
+                button.click();
+            }
+        });
     }
 
     // Read user inputs from the clipboard
@@ -166,4 +180,20 @@ REVISION HISTORY:
         // Display a final reminder alert
         alert("Don't forget to do following manual tasks:\nA) Double check the above information before submitting for approval\nB) Update 8_RSPC ticket");
     });
+
+    // Function to select an option by value in a select element by ID
+function selectOptionByValue(selectId, value) {
+    const selectElement = document.getElementById(selectId);
+    if (selectElement) {
+        for (const option of selectElement.options) {
+            if (option.value === value) {
+                option.selected = true;
+                break;
+            }
+        }
+    }
+}
+
+// Call the function to select "Tier 4" in the 'tier' select element
+selectOptionByValue('tier', 'Tier 4');
 })();
