@@ -181,6 +181,11 @@ REVISION HISTORY:
         alert("Don't forget to do following manual tasks:\nA) Double check the above information before submitting for approval\nB) Update 8_RSPC ticket");
     });
 
+            // Run the function when the page is fully loaded
+    window.addEventListener('load', function() {
+        clickDeleteButtons();
+    });
+
     // Function to select an option by value in a select element by ID
 function selectOptionByValue(selectId, value) {
     const selectElement = document.getElementById(selectId);
